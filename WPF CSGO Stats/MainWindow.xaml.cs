@@ -18,6 +18,7 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
+
 namespace WPF_CSGO_Stats
 {
     /// <summary>
@@ -44,7 +45,7 @@ namespace WPF_CSGO_Stats
         string kdstring = "kd";
         string killfolder = AppDomain.CurrentDomain.BaseDirectory + @"stats\kills\";
         string assistfolder = AppDomain.CurrentDomain.BaseDirectory + @"stats\assists\";
-        string deathfolder = AppDomain.CurrentDomain.BaseDirectory + @"stats\assists\";
+        string deathfolder = AppDomain.CurrentDomain.BaseDirectory + @"stats\deaths\";
         string mvpfolder = AppDomain.CurrentDomain.BaseDirectory + @"stats\mvps";
         string kdfolder = AppDomain.CurrentDomain.BaseDirectory + @"stats\kds\";
         string nfile = AppDomain.CurrentDomain.BaseDirectory + @"stats\n";
@@ -187,46 +188,55 @@ namespace WPF_CSGO_Stats
         //loads the database and shows the stats
         private void ButtonLoad_Click(object sender, RoutedEventArgs e)
         {
-            //resizing the arrays so new elements could be stored
-            Array.Resize<int>(ref kills, n + 1);
-            Array.Resize<int>(ref assists, n + 1);
-            Array.Resize<int>(ref deaths, n + 1);
-            Array.Resize<int>(ref mvps, n + 1);
-            Array.Resize<double>(ref kd, n + 1);
 
-            //check if it is the first time launching otherwise read prevois data
-            if (n > 0)
+            //cheacking if it is first launch
+            if (n == 0)
             {
-
-                kills = ArrayReader(n + 1, killstring);
-                assists = ArrayReader(n + 1, assiststring);
-                deaths = ArrayReader(n + 1, deathstring);
-                mvps = ArrayReader(n + 1, mvpstring);
-                kd = ArrayReaderDouble(n + 1, kdstring);
-            }
-
-            int killtotal = ArraySum(n, kills);
-            int assisttotal = ArraySum(n, assists);
-            int deathtotal = ArraySum(n, deaths);
-            int mvptotal = ArraySum(n, mvps);
-            double kdaverage;
-
-            //checking if total deaths is zero or not otherwise average kd ratio will be total kill amount 
-            if (deathtotal == 0)
-            {
-                kdaverage = killtotal;
+                MessageBoxResult errorLoad = MessageBox.Show("You don't have any data yet!", "Error");
             }
             else
             {
-                kdaverage = Convert.ToDouble(killtotal) / Convert.ToDouble(deathtotal);
-            }
+                //resizing the arrays so new elements could be stored
+                Array.Resize<int>(ref kills, n + 1);
+                Array.Resize<int>(ref assists, n + 1);
+                Array.Resize<int>(ref deaths, n + 1);
+                Array.Resize<int>(ref mvps, n + 1);
+                Array.Resize<double>(ref kd, n + 1);
 
-            //showing the stats
-            this.TextKillCount.Text = Convert.ToString(killtotal);
-            this.TextAssistCount.Text = Convert.ToString(assisttotal);
-            this.TextDeathCount.Text = Convert.ToString(deathtotal);
-            this.TextMVPCount.Text = Convert.ToString(mvptotal);
-            this.TextKD.Text = Convert.ToString(kdaverage);
+                //check if it is the first time launching otherwise read prevois data
+                if (n > 0)
+                {
+
+                    kills = ArrayReader(n + 1, killstring);
+                    assists = ArrayReader(n + 1, assiststring);
+                    deaths = ArrayReader(n + 1, deathstring);
+                    mvps = ArrayReader(n + 1, mvpstring);
+                    kd = ArrayReaderDouble(n + 1, kdstring);
+                }
+
+                int killtotal = ArraySum(n, kills);
+                int assisttotal = ArraySum(n, assists);
+                int deathtotal = ArraySum(n, deaths);
+                int mvptotal = ArraySum(n, mvps);
+                double kdaverage;
+
+                //checking if total deaths is zero or not otherwise average kd ratio will be total kill amount 
+                if (deathtotal == 0)
+                {
+                    kdaverage = killtotal;
+                }
+                else
+                {
+                    kdaverage = Convert.ToDouble(killtotal) / Convert.ToDouble(deathtotal);
+                }
+
+                //showing the stats
+                this.TextKillCount.Text = Convert.ToString(killtotal);
+                this.TextAssistCount.Text = Convert.ToString(assisttotal);
+                this.TextDeathCount.Text = Convert.ToString(deathtotal);
+                this.TextMVPCount.Text = Convert.ToString(mvptotal);
+                this.TextKD.Text = Convert.ToString(kdaverage);
+            }
         }
 
         //opens up "about" dialog
@@ -310,6 +320,21 @@ namespace WPF_CSGO_Stats
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
 
+        }
+
+        private void closeApp(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimizeApp(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void dragMe(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

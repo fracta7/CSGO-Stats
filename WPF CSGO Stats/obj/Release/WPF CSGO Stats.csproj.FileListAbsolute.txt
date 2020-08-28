@@ -1,0 +1,19 @@
+D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\WPF CSGO Stats.exe.config
+D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\WPF CSGO Stats.exe.manifest
+D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\WPF CSGO Stats.application
+D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\WPF CSGO Stats.exe
+D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\WPF CSGO Stats.pdb
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.csprojAssemblyReference.cache
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\MainWindow.g.cs
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\App.g.cs
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats_MarkupCompile.cache
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats_MarkupCompile.lref
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\MainWindow.baml
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.g.resources
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF_CSGO_Stats.Properties.Resources.resources
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.csproj.GenerateResource.cache
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.csproj.CoreCompileInputs.cache
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.exe.manifest
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.application
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.exe
+D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.pdb

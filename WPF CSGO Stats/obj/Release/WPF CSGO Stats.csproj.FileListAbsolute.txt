@@ -18,13 +18,3 @@ D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.application
 D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.exe
 D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.pdb
 D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\App.baml
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.dll
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.WinForms.dll
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.Wpf.dll
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.pdb
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.xml
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.WinForms.pdb
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.WinForms.xml
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.Wpf.pdb
-D:\source\WPF CSGO Stats\WPF CSGO Stats\bin\Release\LiveCharts.Wpf.xml
-D:\source\WPF CSGO Stats\WPF CSGO Stats\obj\Release\WPF CSGO Stats.csproj.CopyComplete

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         AllowsTransparency="True"
         Background="Transparent"
-        Title="CSGO Stats" Height="700" Width="1200" WindowStyle="None" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" MinWidth="640" MinHeight="480">
+        Title="CSGO Stats" Height="500" Width="700" WindowStyle="None" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" MinWidth="640" MinHeight="480">
     <Window.Resources>
         <SolidColorBrush x:Key="TextFieldCorner" Color="#FF0078D7"/>
         <SolidColorBrush x:Key="TextBoxDark" Color="#FF303030"/>
@@ -19,24 +19,26 @@
         <Border Background="{DynamicResource DarkBackground}"  CornerRadius="12" BorderThickness="0.3" Padding="2" BorderBrush="Gray">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="20*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="446*"/>
+                    <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1133*"/>
-                        <ColumnDefinition Width="59*"/>
+                        
+                        <ColumnDefinition Width="595*"/>
+                        <ColumnDefinition Width="61*"/>
                     </Grid.ColumnDefinitions>
+                    
                     <TextBlock Grid.Column="0" Text="CSGO Stats" Margin="15 5 0 5" FontFamily="Calibri" FontSize="20" FontWeight="DemiBold" Foreground="{DynamicResource DarkThemeText}" MouseLeftButtonDown="dragMe"/>
-                    <Ellipse Grid.Column="1" Width="15" Fill="Red" HorizontalAlignment="Right" Margin="0,8,10,8" Cursor="Hand" MouseLeftButtonDown="closeApp"/>
-                    <Ellipse Grid.Column="1" Width="15" Fill="Orange" HorizontalAlignment="Right" Margin="0,8,35,8" Cursor="Hand" MouseLeftButtonDown="minimizeApp"/>
+                    <Ellipse Grid.Column="1" Width="15" Fill="Red" HorizontalAlignment="Right" Margin="0,9,10,9" Cursor="Hand" MouseLeftButtonDown="closeApp"/>
+                    <Ellipse Grid.Column="1" Width="15" Fill="Orange" HorizontalAlignment="Right" Margin="0,9,35,9" Cursor="Hand" MouseLeftButtonDown="minimizeApp"/>
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="55*"/>
+                        <ColumnDefinition Width="31*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="1" Margin="5">
                         <TextBlock Text="Create a new entry" Foreground="{DynamicResource DarkThemeText}" FontWeight="Bold" FontSize="20" Margin="0 5"/>
@@ -48,63 +50,176 @@
 
                             <StackPanel Grid.Column="0" Margin="0 0 5 0">
                                 <TextBlock Text="Kills" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBox Background="{DynamicResource TextBoxDark}" Text="0" x:Name="TextFieldKills" BorderThickness="2" PreviewTextInput="TextFieldKills_PreviewTextInput" Padding="4" Foreground="{DynamicResource DarkThemeText}" BorderBrush="#FF2D5AE2" SelectionBrush="{DynamicResource TextFieldCorner}"/>
+                                <TextBox Background="{DynamicResource TextBoxDark}" Text="0" x:Name="TextFieldKills" PreviewTextInput="TextFieldKills_PreviewTextInput" Padding="4" Foreground="{DynamicResource DarkThemeText}" BorderBrush="#FF2D5AE2" SelectionBrush="{DynamicResource TextFieldCorner}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Margin="5 0 0 0">
                                 <TextBlock Text="Assists" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBox Text="0" BorderThickness="2" PreviewTextInput="TextFieldKills_PreviewTextInput" x:Name="TextFieldAssist" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBox Text="0" PreviewTextInput="TextFieldKills_PreviewTextInput" x:Name="TextFieldAssist" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
                             </StackPanel>
                         </Grid>
-                        <TextBlock Text="Deaths" Foreground="{DynamicResource DarkThemeText}"/>
-                        <TextBox BorderThickness="2" Text="0" PreviewTextInput="TextFieldKills_PreviewTextInput" x:Name="TextFieldDeaths" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}" />
-                        <TextBlock Text="MVPs" Foreground="{DynamicResource DarkThemeText}"/>
-                        <TextBox BorderThickness="2" PreviewTextInput="TextFieldKills_PreviewTextInput" Text="0" x:Name="TextFieldMVPs" Padding="4" Margin="0 0 0 5" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
-                        <Button x:Name="ButtonNewSave" Click="ButtonNewSave_Click" Content="Save" Padding="4" Margin="0 5 0 5" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
-                        <Button x:Name="ButtonLoad" Click="ButtonLoad_Click" Content="Show Stats" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
-                        <Button x:Name="ButtonAbout" Click="ButtonAbout_Click" Content="About" Padding="4" Margin="0 5" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
-                    </StackPanel>
-                    <StackPanel x:Name="StackPanelKills" Grid.Column="0" Margin="5">
-                        <TextBlock Text="Kill Stats" Foreground="{DynamicResource DarkThemeText}"/>
-                        <StackPanel Height="60">
-                            
-
-                        </StackPanel>
-
-                        <TextBlock Text="Assist Stats" Foreground="{DynamicResource DarkThemeText}"/>
-                        <StackPanel Height="60">
-
-                        </StackPanel>
-
-                        <TextBlock Text="Death Stats" Foreground="{DynamicResource DarkThemeText}"/>
-                        <StackPanel Height="60">
-
-                        </StackPanel>
-
-                        <TextBlock Text="MVP Stats" Foreground="{DynamicResource DarkThemeText}"/>
-                        <StackPanel Height="60">
-
-                        </StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0 0 5 0">
+                                <TextBlock Text="Deaths" Foreground="{DynamicResource DarkThemeText}"/>
+
+                                <TextBox Text="0" PreviewTextInput="TextFieldKills_PreviewTextInput" x:Name="TextFieldDeaths" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5 0 0 0">
+                                <TextBlock Text="Rounds" Foreground="{DynamicResource DarkThemeText}" />
+                                <TextBox x:Name="TextFieldRounds" Text="0" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}" PreviewTextInput="TextFieldKills_PreviewTextInput"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Text="MVPs" Foreground="{DynamicResource DarkThemeText}"/>
+                        <TextBox  PreviewTextInput="TextFieldKills_PreviewTextInput" Text="0" x:Name="TextFieldMVPs" Padding="4" Margin="0 0 0 25" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
+                        <Button x:Name="ButtonNewSave" Click="ButtonNewSave_Click" Content="Save" Padding="4" Margin="0 5 0 5" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
+                        <Button x:Name="ButtonLoad" Click="ButtonLoad_Click" Content="Show Stats" Padding="4" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}" Margin="0 5"/>
+                        <Button x:Name="ButtonAbout" Click="ButtonAbout_Click" Content="About" Padding="4" Margin="0 5" Background="{DynamicResource TextBoxDark}" BorderBrush="{DynamicResource TextFieldCorner}" Foreground="{DynamicResource DarkThemeText}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="StackPanelKills" Grid.Column="0" Margin="5">
+                        <StackPanel Margin="0 0 0 15">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="111*"/>
+                                    <ColumnDefinition Width="106*"/>
+                                    <ColumnDefinition Width="213*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Grid.Column="0">
+                                    <TextBlock Text="K/D" FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                    <Canvas Width="100" Height="30" HorizontalAlignment="Left">
+                                        <Line x:Name="linekdpoorbl" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linekdpoor" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="2"/>
+                                        <Line x:Name="linekdokaybl" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linekdokay" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="linekdgoodbl" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linekdgood" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="kdline" X1="0" Y1="10" X2="0" Y2="20" Stroke="Red" StrokeThickness="2"/>
+                                    </Canvas>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="0" Grid.Column="1">
+                                    <TextBlock Text="KPR" FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                    <Canvas Width="100" Height="30" HorizontalAlignment="Left">
+                                        <Line x:Name="linekprpoorbl" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linekprpoor" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="2"/>
+                                        <Line x:Name="linekprokaybl" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linekprokay" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="linekprgoodbl" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linekprgood" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="KPRLine" X1="0" Y1="10" X2="0" Y2="20" Stroke="Red" StrokeThickness="2"/>
+                                    </Canvas>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="0">
+                                    <TextBlock Text="DPR" FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                    <Canvas Width="100" Height="30" HorizontalAlignment="Left">
+                                        <Line x:Name="linedprpoorbl" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linedprpoor" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="2"/>
+                                        <Line x:Name="linedprokaybl" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linedprokay" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="linedprgoodbl" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="linedprgood" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="DPRLine" X1="0" Y1="10" X2="0" Y2="20" Stroke="Red" StrokeThickness="2"/>
+                                    </Canvas>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="1">
+                                    <TextBlock Text="APR" FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                    <Canvas Width="100" Height="30" HorizontalAlignment="Left">
+                                        <Line x:Name="lineaprpoorbl" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="lineaprpoor" X1="0" Y1="15" X2="33" Y2="15" Stroke="Red" StrokeThickness="2"/>
+                                        <Line x:Name="lineaprokaybl" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="lineaprokay" X1="34" Y1="15" X2="67" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="lineaprgoodbl" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="3">
+                                            <Line.Effect>
+                                                <BlurEffect/>
+                                            </Line.Effect>
+                                        </Line>
+                                        <Line x:Name="lineaprgood" X1="68" Y1="15" X2="100" Y2="15" Stroke="Gray" StrokeThickness="2"/>
+                                        <Line x:Name="APRLine" X1="0" Y1="10" X2="0" Y2="20" Stroke="Red" StrokeThickness="2"/>
+                                    </Canvas>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="267*"/>
+                                <ColumnDefinition Width="163*"/>
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="Total Kills:" FontSize="20" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock Text="Total Assists: " FontSize="20" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock Text="Total Deaths: " FontSize="20" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock Text="Total MVPs: " FontSize="20" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock Text="Average K/D ratio: " FontSize="20" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Total Kills:" FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Total Assists: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Total Deaths: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Total MVPs: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Total Rounds: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}" />
+                                <TextBlock Text="Average K/D ratio: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Average DPR: " Margin="0 5" FontSize="17" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Average KPR: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock Text="Average APR: " FontSize="17" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBlock x:Name="TextKillCount" Text="0" FontSize="20" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock x:Name="TextAssistCount" Text="0" FontSize="20" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock x:Name="TextDeathCount" Text="0" FontSize="20" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock x:Name="TextMVPCount" Text="0" FontSize="20" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-                                <TextBlock x:Name="TextKD" Text="0.0" FontSize="20" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
-
+                                <TextBlock x:Name="TextKillCount" Text="0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextAssistCount" Text="0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextDeathCount" Text="0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextMVPCount" Text="0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextRoundCount" Text="0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextKD" Text="0.0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextDPR" Text="0.0" FontSize="17" Margin="0 5" FontWeight="Bold" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextKPR" Text="0.0" FontSize="17" Margin="0 5" FontWeight="Bold" Foreground="{DynamicResource DarkThemeText}"/>
+                                <TextBlock x:Name="TextAPR" Text="0.0" FontSize="17" FontWeight="Bold" Margin="0 5" Foreground="{DynamicResource DarkThemeText}"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
